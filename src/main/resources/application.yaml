@@ -6,3 +6,5 @@ stripe:
   timeout: 1000
   supported-currencies: USD,EUR,RUPEE,GBP
   apiUrl: https://api.stripe.com
+
+payment_Gateway: paypal
