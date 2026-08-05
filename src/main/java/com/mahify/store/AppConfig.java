@@ -12,10 +12,12 @@ public class AppConfig {
 
     @Value("${payment_Gateway}")
     private String paymentGateway;
+
     @Bean
     public PaymentService stripe(){
         return new StripePaymentService();
     }
+
     @Bean
     public PaymentService paypal(){
         return new PaypalPaymentService();
