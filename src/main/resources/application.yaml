@@ -8,3 +8,7 @@ stripe:
   apiUrl: https://api.stripe.com
 
 payment_Gateway: paypal
+
+mail:
+  host: gmail.com
+  port: 233
