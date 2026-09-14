@@ -1,6 +1,7 @@
 package com.mahify.store;
 
 import com.mahify.store.entities.Address;
+import com.mahify.store.entities.Profile;
 import com.mahify.store.entities.Tag;
 import com.mahify.store.entities.User;
 import org.springframework.boot.SpringApplication;
@@ -18,8 +19,12 @@ public class StoreApplication {
                 .email("Mahendra@gamil.com")
                 .build();
 
+        var profile = Profile.builder()
+                        .bio("bio")
+                        .build();
 
-        user.addTag("Tag1");
+        user.setProfile(profile);
+        profile.setUser(user);
 
         System.out.println(user);
     }
