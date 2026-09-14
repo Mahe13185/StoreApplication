@@ -11,8 +11,6 @@ import java.time.LocalDate;
 @Entity
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
 @Table(name = "profiles")
 public class Profile {
     @Id

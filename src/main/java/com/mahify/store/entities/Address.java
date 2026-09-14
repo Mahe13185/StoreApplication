@@ -1,17 +1,16 @@
 package com.mahify.store.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Entity
 @Table(name = "addresses")
-@Getter
-@Setter
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
+@Getter
+@Setter
 public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,4 +28,9 @@ public class Address {
 
     @Column(name = "state")
     private String state;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    @ToString.Exclude
+    private User user;
 }
