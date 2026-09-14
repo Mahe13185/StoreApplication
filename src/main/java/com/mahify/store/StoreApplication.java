@@ -1,6 +1,7 @@
 package com.mahify.store;
 
 import com.mahify.store.entities.Address;
+import com.mahify.store.entities.Tag;
 import com.mahify.store.entities.User;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -16,16 +17,10 @@ public class StoreApplication {
                 .name("Mahendra")
                 .email("Mahendra@gamil.com")
                 .build();
-        var address = Address.builder()
-                .street("street")
-                .city("city")
-                .zip("zip")
-                .state("state")
-                .build();
 
 
+        user.addTag("Tag1");
 
-        user.addAddress(address);
         System.out.println(user);
     }
 
