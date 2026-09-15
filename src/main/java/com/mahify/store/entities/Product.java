@@ -1,25 +1,20 @@
 package com.mahify.store.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.math.BigDecimal;
 
-@Entity
-@Table(name = "products")
-@AllArgsConstructor
-@NoArgsConstructor
 @Getter
 @Setter
+@Entity
+@Table(name = "products")
 public class Product {
-
-    @Column(name = "id")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    @Column(name = "id")
+    private Long id;
 
     @Column(name = "name")
     private String name;
