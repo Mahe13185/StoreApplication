@@ -4,6 +4,7 @@ import com.mahify.store.entities.Address;
 import com.mahify.store.entities.Profile;
 import com.mahify.store.entities.Tag;
 import com.mahify.store.entities.User;
+import com.mahify.store.repositories.UserRepository;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -13,20 +14,23 @@ public class StoreApplication {
 
     public static void main(String[] args) {
         ApplicationContext context =  SpringApplication.run(StoreApplication.class, args);
+        var repo = context.getBean(UserRepository.class);
+
         var user = User.builder()
-                .id(1L)
-                .name("Mahendra")
-                .email("Mahendra@gamil.com")
+                .name("mahendra")
+                .email("Mahe@gmail")
+                .password("Mahe")
                 .build();
+//
+//        repo.save(user);
+//        System.out.println(user);
 
-        var profile = Profile.builder()
-                        .bio("bio")
-                        .build();
+        var user1= repo.findById(1L);
+        System.out.println(user1.get().getName());
 
-        user.setProfile(profile);
-        profile.setUser(user);
+        repo.findAll().forEach(u -> System.out.println(u.getName()));
 
-        System.out.println(user);
+        repo.deleteById(1L);
     }
 
 }
