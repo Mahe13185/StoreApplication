@@ -1,6 +1,7 @@
 package com.mahify.store.Service;
 
 import com.mahify.store.entities.User;
+import com.mahify.store.repositories.AddressRepository;
 import com.mahify.store.repositories.ProfileRepository;
 import com.mahify.store.repositories.UserRepository;
 import jakarta.persistence.EntityManager;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Service;
 public class UserService {
     private UserRepository userRepository;
     private EntityManager entityManager;
+    private AddressRepository addressRepository;
     private ProfileRepository profileRepository;
 
     public void showEntityStates() {
@@ -37,5 +39,11 @@ public class UserService {
     public void showRelatedEntites(){
         var profile = profileRepository.findById(2L).orElseThrow();
         System.out.println(profile.getUser().getEmail());
+    }
+
+    @Transactional
+    public void  fetchAddress(){
+        var address = addressRepository.findById(1L).orElseThrow();
+//        System.out.println(address.getUser().g);
     }
 }
