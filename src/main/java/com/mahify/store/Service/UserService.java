@@ -13,6 +13,8 @@ import org.springframework.stereotype.Service;
 public class UserService {
     private UserRepository userRepository;
     private EntityManager entityManager;
+
+    @Transactional
     public void showEntityStates() {
         var user = User.builder()
                 .name("Mahendra")
