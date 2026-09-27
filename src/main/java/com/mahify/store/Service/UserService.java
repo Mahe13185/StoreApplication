@@ -1,22 +1,28 @@
 package com.mahify.store.Service;
 
 import com.mahify.store.entities.Address;
+import com.mahify.store.entities.Product;
 import com.mahify.store.entities.User;
-import com.mahify.store.repositories.AddressRepository;
-import com.mahify.store.repositories.ProfileRepository;
-import com.mahify.store.repositories.UserRepository;
+import com.mahify.store.repositories.*;
 import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import org.springframework.stereotype.Service;
+
+import java.math.BigDecimal;
+import java.util.ArrayList;
 
 @Service
 @AllArgsConstructor
+@Builder
 public class UserService {
     private UserRepository userRepository;
     private EntityManager entityManager;
     private AddressRepository addressRepository;
     private ProfileRepository profileRepository;
+    private ProductRepository productRepository;
+    private CategoryRepository categoryRepository;
 
     public void showEntityStates() {
         var user = User.builder()
@@ -64,6 +70,29 @@ public class UserService {
         var address = user.getAddresses().getFirst();
         user.removeAddress(address);
         userRepository.save(user);
+    }
+
+    @Transactional
+    public void manageProduct(){
+//        step 01 -- and step 02
+//        var category = categoryRepository.findById((byte) 1).orElseThrow();
+//
+//        var product = Product.builder()
+//                .description("des 2")
+//                .name("product 2")
+//                .price(BigDecimal.valueOf(12.22))
+//                .category(category)
+//                .build();
+//
+//        productRepository.save(product);
+//        step 03---
+//        var user = userRepository.findById(3L).orElseThrow();
+//        var products = productRepository.findAll();
+//        products.forEach(user::addFavoriteProducts);
+//        userRepository.save(user);
+
+//        step 04
+        productRepository.deleteById(4L);
 
     }
 }

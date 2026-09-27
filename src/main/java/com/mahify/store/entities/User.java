@@ -67,4 +67,7 @@ public class User {
     @OneToOne(mappedBy = "user")
     private Profile profile;
 
+    public void addFavoriteProducts(Product product) {
+        wishLists.add(product);
+    }
 }
