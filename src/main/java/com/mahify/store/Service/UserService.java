@@ -1,5 +1,6 @@
 package com.mahify.store.Service;
 
+import com.mahify.store.entities.Address;
 import com.mahify.store.entities.User;
 import com.mahify.store.repositories.AddressRepository;
 import com.mahify.store.repositories.ProfileRepository;
@@ -45,5 +46,15 @@ public class UserService {
     public void  fetchAddress(){
         var address = addressRepository.findById(1L).orElseThrow();
 //        System.out.println(address.getUser().g);
+    }
+
+    public void persistRelated(){
+        var user = User.builder()
+                .name("Mahendra123").email("Mahe@gmail.com").password("Mahe123").build();
+        var address = Address.builder()
+                .street("street").city("city").zip("zip").state("state").build();
+        user.addAddress(address);
+
+        userRepository.save(user);
     }
 }
