@@ -10,7 +10,6 @@ import java.util.Set;
 
 @Setter
 @Getter
-@ToString
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
@@ -69,5 +68,13 @@ public class User {
 
     public void addFavoriteProducts(Product product) {
         wishLists.add(product);
+    }
+
+    @Override
+    public String toString() {
+        return getClass().getSimpleName() + "(" +
+                "id = " + id + ", " +
+                "name = " + name + ", " +
+                "email = " + email + ")";
     }
 }
