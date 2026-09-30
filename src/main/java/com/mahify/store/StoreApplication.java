@@ -19,6 +19,7 @@ public class StoreApplication {
 
 //        service.persistRelated();
 //        service.deleteRelated();
-        service.fetchUsers();
+//        service.fetchUsers();
+        service.printLoyalProfiles();
     }
 }
