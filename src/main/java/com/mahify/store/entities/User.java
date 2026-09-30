@@ -63,8 +63,8 @@ public class User {
     @Builder.Default
     private Set<Tag> tags = new HashSet<>();
 
-    @OneToOne(mappedBy = "user")
-    private Profile profile;
+//    @OneToOne(mappedBy = "user")
+//    private Profile profile;
 
     public void addFavoriteProducts(Product product) {
         wishLists.add(product);

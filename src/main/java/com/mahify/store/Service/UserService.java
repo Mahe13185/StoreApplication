@@ -2,7 +2,6 @@ package com.mahify.store.Service;
 
 import com.mahify.store.entities.Address;
 import com.mahify.store.entities.Category;
-import com.mahify.store.entities.Product;
 import com.mahify.store.entities.User;
 import com.mahify.store.repositories.*;
 import jakarta.persistence.EntityManager;
@@ -12,7 +11,6 @@ import lombok.Builder;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
 
 @Service
 @AllArgsConstructor
@@ -107,8 +105,11 @@ public class UserService {
     }
 
     @Transactional
-    public void fetchUser(){
-        var user = userRepository.findByEmail("code@gmail.com").orElseThrow();
-        System.out.println(user);
+    public void fetchUsers(){
+        var user = userRepository.findAllWithAddresses();
+        user.forEach(u -> {
+            System.out.println(u);
+            u.getAddresses().forEach(System.out::println);
+        });
     }
 }
