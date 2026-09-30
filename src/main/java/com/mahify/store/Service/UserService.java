@@ -1,6 +1,7 @@
 package com.mahify.store.Service;
 
 import com.mahify.store.entities.Address;
+import com.mahify.store.entities.Category;
 import com.mahify.store.entities.Product;
 import com.mahify.store.entities.User;
 import com.mahify.store.repositories.*;
@@ -98,5 +99,10 @@ public class UserService {
     @Transactional
     public void updateProductPrices(){
         productRepository.updatePriceByCategory(BigDecimal.valueOf(10),(byte) 1);
+    }
+
+    public void fetchCategories(){
+       var products = productRepository.findByCategory(new Category((byte) 1));
+        products.forEach(System.out::println);
     }
 }

@@ -19,6 +19,6 @@ public class StoreApplication {
 
 //        service.persistRelated();
 //        service.deleteRelated();
-        service.updateProductPrices();
+        service.fetchCategories();
     }
 }
